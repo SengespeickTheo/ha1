@@ -125,6 +125,19 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+    @Test
+    @DisplayName("should do nothing when equal was pressed without any previous operation")
+    void testNoOperationBeforeEquals() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(6);
+        calc.pressEqualsKey();
+
+        String expected = "6";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 
 }
 
