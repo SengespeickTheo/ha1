@@ -109,5 +109,22 @@ class CalculatorTest {
 
     }
 
+    @Test
+    @DisplayName("should allow to substract a percentage with a positive number")
+    void testPositiveNumberSubstractPercentage() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(9);
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("%");
+
+        String expected = "4.5";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
