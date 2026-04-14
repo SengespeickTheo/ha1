@@ -138,6 +138,24 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+    @Test
+    @DisplayName("ClearKey should set screen to zero after pressing once and delete firstValue and latestOperation pressing a second time")
+    void testClearKey() {
 
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(6);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(8);
+
+        calc.pressClearKey();
+        calc.pressDigitKey(2);
+        calc.pressClearKey();
+
+        String expected = "8";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
