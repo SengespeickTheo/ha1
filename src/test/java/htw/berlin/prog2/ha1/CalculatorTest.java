@@ -149,13 +149,16 @@ class CalculatorTest {
         calc.pressDigitKey(8);
 
         calc.pressClearKey();
-        calc.pressDigitKey(2);
         calc.pressClearKey();
 
-        String expected = "8";
+        calc.pressDigitKey(2);
+        calc.pressEqualsKey();
+
+        String expected = "2";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
     }
 }
+
 
